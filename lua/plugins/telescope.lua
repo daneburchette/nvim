@@ -69,7 +69,7 @@ return {
       end, { desc = "[s]earch [n]eovim files" })
       vim.keymap.set("n", "<leader>sl", function()
         builtin.find_files {
-          cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+          cwd = vim.fs.joinpath(tostring(vim.fn.stdpath("data")), "lazy")
         }
       end, { desc = "[s]earch [l]azy files" })
     end,
