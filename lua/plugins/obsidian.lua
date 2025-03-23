@@ -19,14 +19,14 @@ return {
     workspaces = {
       {
         name = "Obsidian",
-        path = "/home/dane/Obsidian/",
+        path = "$HOME/Obsidian/",
         overrides = {
           -- notes_subdir = "Church/Sermon_Notes/"
         }
       },
       {
         name = "Podcasts",
-        path = "/home/dane/Podcasts/"
+        path = "$HOME/Podcasts/"
       }
     },
     preferred_link_style = "markdown",

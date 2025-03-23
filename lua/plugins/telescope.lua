@@ -65,7 +65,7 @@ return {
         })
       end, { desc = "[s]earch [/] in open files" })
       vim.keymap.set("n", "<leader>sn", function()
-        builtin.find_files({ cwd = "/home/dane/.config/nvim/" })
+        builtin.find_files({ cwd = vim.fn.stdpath("config") })
       end, { desc = "[s]earch [n]eovim files" })
       vim.keymap.set("n", "<leader>sl", function()
         builtin.find_files {

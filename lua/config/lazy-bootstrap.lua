@@ -28,6 +28,7 @@ require("lazy").setup({
     -- Import plugins
     -- ../plugins/
     { import = "plugins" },
+    -- ../colorschemes/
     { import = "colorschemes" },
   },
   ui = {

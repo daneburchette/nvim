@@ -15,12 +15,13 @@ vim.g.have_nerd_font = true
 
 -- General
 opt.undofile = true
-
 opt.backup = false
 opt.writebackup = false
 
-opt.mouse = "a"
+opt.updatetime = 250
+opt.timeoutlen = 300
 
+opt.mouse = "a"
 opt.shortmess:append "sI"
 
 vim.cmd("filetype plugin indent on")
@@ -54,6 +55,7 @@ opt.infercase = true
 opt.smartcase = true
 opt.smartindent = true
 
+opt.textwidth = 80
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.tabstop = 4
@@ -67,10 +69,10 @@ opt.virtualedit = "block"
 -- Extra UI
 opt.list = true
 opt.listchars = {
-  tab = "» ",
-  extends = "…",
-  precedes = "…",
-  nbsp = "␣",
-  trail = "·",
+    tab = "» ",
+    extends = "…",
+    precedes = "…",
+    nbsp = "␣",
+    trail = "·",
 }
 opt.scrolloff = 10

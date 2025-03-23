@@ -40,6 +40,5 @@ return {
         auto = true,
       },
     })
-    vim.cmd([[colorscheme tokyonight]])
   end,
 }
