@@ -35,7 +35,7 @@ end
 
 local blockquote = function()
   local command = "I< \027$"
-  if vim.bo.filteype == "markdown" then
+  if vim.bo.filetype == "markdown" then
     vim.api.nvim_feedkeys(command, "n", false)
   else
     print("Can Only Blockquote Text in Markdown Files!")
