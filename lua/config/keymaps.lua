@@ -48,17 +48,21 @@ map("<leader>tp", "<cmd>tabprevious<CR>", "[t]ab [p]revious")
 map("<leader>id", "<cmd>r! date '+\\%B \\%d, \\%Y'<CR>kJ", "[i]nsert [d]ate")
 map("<leader>ii", "<cmd>Emphasize 1<CR>", "[i]nsert [i]talics (markdown only)")
 map("<leader>ib", "<cmd>Emphasize 2<CR>", "[i]nsert [b]old (markdown only)")
-map("<leader>iB", "<cmd>Emphasize 3<CR>", "[i]nsert [B]old-italics (markdown only)")
+map("<leader>iB", "<cmd>Emphasize 3<CR>",
+  "[i]nsert [B]old-italics (markdown only)")
 map("<leader>iq", "<cmd>Blockquote<CR>", "[i]nsert block[q]uote (markdown only)")
-
-map("<leader>Tb", "<cmd>lua vim.o.bg = vim.o.bg == 'dark' and 'light' or 'dark'; print(vim.o.background)<CR>",
+map("<leader>Tb",
+  "<cmd>lua vim.o.bg = vim.o.bg == 'dark' and 'light' or 'dark'; print(vim.o.background)<CR>",
   "[T]oggle [b]background")
-map("<leader>Tc", "<cmd>setlocal cursorline! cursorline?<CR>", "[T]oggle [c]ursorline")
-map("<leader>TC", "<cmd>setlocal cursorcolumn! cursorcolumn?<CR>", "[T]oggle [C]ursorcolumn")
+map("<leader>Tc", "<cmd>setlocal cursorline! cursorline?<CR>",
+  "[T]oggle [c]ursorline")
+map("<leader>TC", "<cmd>setlocal cursorcolumn! cursorcolumn?<CR>",
+  "[T]oggle [C]ursorcolumn")
 map("<leader>Ti", "<cmd>setlocal ignorecae!<CR>", "[T]oggle [i]gnorecase")
 map("<leader>Tl", "<cmd>setlocal list! list?<CR>", "[T]oggle [l]ist")
 map("<leader>Tn", "<cmd>setlocal number! number?<CR>", "[T]oggle [n]umber")
-map("<leader>Tr", "<cmd>setlocal relativenumber! relativenumber?<CR>", "[T]oggle [r]elativenumber")
+map("<leader>Tr", "<cmd>setlocal relativenumber! relativenumber?<CR>",
+  "[T]oggle [r]elativenumber")
 map("<leader>Ts", "<cmd>setlocal spell! spell?<CR>", "[T]oggle [s]pell check")
 map("<leader>Tw", "<cmd>setlocal wrap! wrap?<CR>", "[T]oggle [w]rap")
 
@@ -67,7 +71,8 @@ map("<leader>wk", "<cmd>WhichKey <CR>", "[w]hich-[k]ey all keymaps")
 map("<leader>pl", "<cmd>Lazy<CR>", "[p]lugins - [l]azy Vim Manager")
 map("<leader>pL", "<cmd>Lazy update<CR>", "[p]lugins - [L]azy Vim Update")
 map("<leader>pm", "<cmd>Mason<CR>", "[p]lugins - [m]ason LSP Manager")
-map("<leader>pM", "<cmd>MasonToolsUpdateSync<CR>", "[p]lugins - [M]ason LSP Update")
+map("<leader>pM", "<cmd>MasonToolsUpdateSync<CR>",
+  "[p]lugins - [M]ason LSP Update")
 
 map("\\", "<cmd>Neotree<CR>", "open NeoTree")
 map("gO", "<cmd>OilToggle<CR>", "[g]o to [O]il")

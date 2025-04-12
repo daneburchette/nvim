@@ -17,6 +17,7 @@ return {
         "c",
         "css",
         "diff",
+        "go",
         "html",
         "json",
         "jsonc",
@@ -31,6 +32,7 @@ return {
         "vimdoc",
         "xml",
         "yaml",
+        "zig",
       },
       auto_install = true,
       highlight = {

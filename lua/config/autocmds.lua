@@ -15,7 +15,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Set local options for markdown/gitcommit files
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("Markdown and GitCommit Custom", { clear = true }),
+  group = vim.api.nvim_create_augroup("Markdown and GitCommit Custom",
+    { clear = true }),
   pattern = { "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.conceallevel = 2

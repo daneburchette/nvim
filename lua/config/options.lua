@@ -69,10 +69,16 @@ opt.virtualedit = "block"
 -- Extra UI
 opt.list = true
 opt.listchars = {
-    tab = "» ",
-    extends = "…",
-    precedes = "…",
-    nbsp = "␣",
-    trail = "·",
+  tab = "» ",
+  extends = "…",
+  precedes = "…",
+  nbsp = "␣",
+  trail = "·",
 }
 opt.scrolloff = 10
+
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  virtual_lines = false
+})
