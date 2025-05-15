@@ -42,17 +42,21 @@ return {
           map("gr", telescope.lsp_references, "[G]oto [R]eferences")
           map("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
           map("<leader>D", telescope.lsp_type_definitions, "Type [D]efinition")
-          map("<leader>ds", telescope.lsp_document_symbols, "[D]ocument [S]ymbols")
-          map("<leader>ws", telescope.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+          map("<leader>ds", telescope.lsp_document_symbols,
+            "[D]ocument [S]ymbols")
+          map("<leader>ws", telescope.lsp_dynamic_workspace_symbols,
+            "[W]orkspace [S]ymbols")
           map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-          map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+          map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction",
+            { "n", "x" })
           map("<leader>K", vim.lsp.buf.hover, "Hover Documentation")
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
           -- Highlight references of the word under cursor
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-            local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight",
+            local highlight_augroup = vim.api.nvim_create_augroup(
+              "lsp-highlight",
               { clear = false })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
@@ -95,6 +99,7 @@ return {
         -- cssls = {},
         delve = {},
         gopls = {},
+        html = {},
         jsonls = {},
         marksman = {},
         ols = {},
@@ -139,6 +144,8 @@ return {
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       require("mason-lspconfig").setup({
+        ensure_installed = {},
+        automatic_installation = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
