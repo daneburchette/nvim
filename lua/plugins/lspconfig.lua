@@ -26,7 +26,8 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim",       opts = {} },
-      "hrsh7th/cmp-nvim-lsp",
+      'saghen/blink.cmp',
+      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -38,19 +39,18 @@ return {
               { buffer = event.buf, desc = "LSP: " .. desc })
           end
           local telescope = require("telescope.builtin")
-          map("gd", telescope.lsp_definitions, "[G]oto [D]efinition")
-          map("gr", telescope.lsp_references, "[G]oto [R]eferences")
-          map("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
-          map("<leader>D", telescope.lsp_type_definitions, "Type [D]efinition")
-          map("<leader>ds", telescope.lsp_document_symbols,
-            "[D]ocument [S]ymbols")
-          map("<leader>ws", telescope.lsp_dynamic_workspace_symbols,
-            "[W]orkspace [S]ymbols")
-          map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-          map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction",
+          map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+          map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction",
             { "n", "x" })
+          map("grr", telescope.lsp_references, "[G]oto [R]eferences")
+          map("gri", telescope.lsp_implementations, "[G]oto [I]mplementation")
+          map("grd", telescope.lsp_definitions, "[G]oto [D]efinition")
+          map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          map("gD", telescope.lsp_document_symbols, "Open [D]ocument Symbols")
+          map("gW", telescope.lsp_dynamic_workspace_symbols,
+            "Open [W]orkspace Symbols")
+          map("grT", telescope.lsp_type_definitions, "[G]oto Type [D]efinition")
           map("<leader>K", vim.lsp.buf.hover, "Hover Documentation")
-          map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
           -- Highlight references of the word under cursor
           local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -86,17 +86,44 @@ return {
 
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
             map("<leader>Th", function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, "[T]oggle Inlay [h]ints")
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, "[T]oggle Inlay [H]ints")
           end
         end,
       })
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities,
-        require("cmp_nvim_lsp").default_capabilities())
+      vim.diagnostic.config {
+        severity_sort = true,
+        float = { border = 'rounded', source = 'if_many' },
+        underline = { severity = vim.diagnostic.severity.ERROR },
+        signs = vim.g.have_nerd_font and {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+          },
+        } or {},
+        virtual_text = {
+          source = 'if_many',
+          spacing = 2,
+          format = function(diagnostic)
+            local diagnostic_message = {
+              [vim.diagnostic.severity.ERROR] = diagnostic.message,
+              [vim.diagnostic.severity.WARN] = diagnostic.message,
+              [vim.diagnostic.severity.INFO] = diagnostic.message,
+              [vim.diagnostic.severity.HINT] = diagnostic.message,
+            }
+            return diagnostic_message[diagnostic.severity]
+          end,
+        },
+      }
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- capabilities = vim.tbl_deep_extend("force", capabilities,
+      --   require("cmp_nvim_lsp").default_capabilities())
       local servers = {
         clangd = {},
-        -- cssls = {},
+        cssls = {},
         delve = {},
         gopls = {},
         html = {},
@@ -134,7 +161,6 @@ return {
         },
         zls = {},
       }
-      require("mason").setup()
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         "jsonlint",
