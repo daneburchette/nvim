@@ -127,6 +127,7 @@ return {
         delve = {},
         gopls = {},
         html = {},
+        htmx = {},
         jsonls = {},
         marksman = {},
         ols = {},
