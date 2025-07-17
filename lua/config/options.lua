@@ -82,3 +82,9 @@ vim.diagnostic.config({
   virtual_text = true,
   virtual_lines = false
 })
+
+
+-- gx Timeout Error Fix
+vim.ui.open = function(uri)
+  vim.fn.jobstart({ "xdg-open", uri }, { detach = true })
+end
