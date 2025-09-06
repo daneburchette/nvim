@@ -19,7 +19,7 @@ return {
     workspaces = {
       {
         name = "Obsidian",
-        path = "$HOME/Obsidian/",
+        path = "$HOME/Nextcloud/Notes/",
         overrides = {
           -- notes_subdir = "Church/Sermon_Notes/"
         }
@@ -27,7 +27,7 @@ return {
       {
         name = "Podcasts",
         path = "$HOME/Podcasts/"
-      }
+      },
     },
     preferred_link_style = "markdown",
   },

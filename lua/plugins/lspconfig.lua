@@ -127,12 +127,12 @@ return {
         delve = {},
         gopls = {},
         html = {},
-        htmx = {},
+        -- htmx = {},
         jsonls = {},
         marksman = {},
-        ols = {},
+        -- ols = {},
         pylsp = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -160,7 +160,7 @@ return {
             },
           },
         },
-        zls = {},
+        -- zls = {},
       }
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
