@@ -7,8 +7,8 @@
 -- https://github.com/stevearc/oil.nvim
 
 return {
-  'stevearc/oil.nvim',
-  enabled = false,
+  "stevearc/oil.nvim",
+  enabled = true,
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {},
