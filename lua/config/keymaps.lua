@@ -16,6 +16,9 @@ map("<C-j>", "<C-w>j", "Go to the down pane")
 map("<C-k>", "<C-w>k", "Go to the up pane")
 map("<C-l>", "<C-w>l", "Go to the right pane")
 
+map("<UP>", "gk", "Go up by line in word wrap")
+map("<DOWN>", "gj", "Go down by line in word wrap")
+
 map("<C-d>", "<C-d>zz", "Scroll ½ Page Up and Center", { "n", "v" })
 map("<C-u>", "<C-u>zz", "Scroll ½ Page Down and Center", { "n", "v" })
 map("n", "nzz", "[n]ext search result forward", { "n", "v" })
