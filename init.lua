@@ -19,10 +19,13 @@ require("config.keymaps")
 -- ./lua/config/lazy-bootstrap.lua
 require("config.lazy-bootstrap")
 
--- Set colorscheme
+-- Set default colorscheme
 
 -- ./lua/colorschemes/catppuccin.lua
 -- vim.cmd([[colorscheme catppuccin]])
+
+-- ./lua/colorschemes/gruvbox.lua
+-- vim.cmd([[colorscheme gruvbox]])
 
 -- ./lua/colorschemes/kanagawa.lua
 vim.cmd([[colorscheme kanagawa]])
