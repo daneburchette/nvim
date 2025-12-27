@@ -28,7 +28,7 @@ require("config.lazy-bootstrap")
 -- vim.cmd([[colorscheme gruvbox]])
 
 -- ./lua/colorschemes/kanagawa.lua
-vim.cmd([[colorscheme kanagawa]])
+-- vim.cmd([[colorscheme kanagawa]])
 
 -- ./lua/colorschemes/onedark.lua
 -- vim.cmd([[colorscheme onedark]])
@@ -37,4 +37,4 @@ vim.cmd([[colorscheme kanagawa]])
 -- vim.cmd([[colorscheme rose-pine]])
 
 -- ./lua/colorschemes/tokyonight.lua
--- vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme tokyonight]])

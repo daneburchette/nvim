@@ -19,8 +19,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		vim.fn.getchar()
 		os.exit(1)
 	end
-end
----@diagnostic disable-next-line: undefined-field
+end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
