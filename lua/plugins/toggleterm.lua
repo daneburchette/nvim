@@ -13,9 +13,8 @@ return {
   opts = {
     open_mapping = "<C-\\>",
     terminal_mappings = true,
-    -- direction = "float",
-    direction = "float",
+    --direction = "float",
     shade_terminals = true,
     autochdir = true,
-  }
+  },
 }
